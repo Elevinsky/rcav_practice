@@ -8,4 +8,11 @@ class CalculationsController < ApplicationController
 
     @answer = @number*@number
   end
+
+  def square_root
+    @number = params[:number].to_f
+
+    answer_raw = @number**0.5
+    @answer = answer_raw.round(2)
+  end
 end
