@@ -15,4 +15,19 @@ class CalculationsController < ApplicationController
     answer_raw = @number**0.5
     @answer = answer_raw.round(2)
   end
+
+  def square_root
+    @number = params[:number].to_f
+
+    answer_raw = @number**0.5
+    @answer = answer_raw.round(2)
+  end
+
+  def random
+    @min = params[:min].to_i
+    @max = params[:max].to_i
+
+    @answer = rand(@min...@max)
+  end
+
 end
