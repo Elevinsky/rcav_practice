@@ -30,4 +30,13 @@ class CalculationsController < ApplicationController
     @answer = rand(@min...@max)
   end
 
+  def payment
+    @interest = params[:interest].to_f
+    @years = params[:years].to_f
+    @principal = params[:principal].to_f
+    @arp = @interest/100
+
+    @answer = (@arp/1200 * @principal) / (1-(1+(@arp/1200)) ** (-12 * @years))
+  end
+
 end
